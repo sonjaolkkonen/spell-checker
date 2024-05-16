@@ -7,6 +7,8 @@ Opinto-ohjelma: Tietojenkäsittelytieteen kandidaatti (TKT)
 
 Käyttäjä antaa sovellukselle tekstisyötteenä sanoja, jotka analysoidaan vertaamalla niiden etäisyyttä sanastossa oleviin sanoihin. Mikäli sana löytyy sanastosta, eli etäisyys on 0, ei sovellus anna ehdotuksia. Mikäli taas sana ei löydy sanastosta, antaa sovellus korjausehdotuksina sanat, jotka ovat lähimpänä annettua tekstisyötettä. Vaihtoehtoisesti käyttäjä voi lisätä sanan sanastoon mikäli sana on kirjoitettu oikein, mutta sitä ei vielä löydy sanastosta. Sanastona käytetään suomen kielen sanastoa ja alustavasti tekstisyötteenä voi antaa kerrallaan vain yhden sanan.
 
+Riippuvuuksien hallintaan käytetään Poetryä. Algoritmin oikea toiminta varmistetaan kattavalla yksikkötestauksella Unittest-kehystä hyödyntäen.
+
 Lähteiden mukaan trie-tietorakenteen hakuoperaatiot voivat enimmillään viedä O(n) aikaa, kun taas Damerau-Levenshteinin etäisyyttä käyttävä algoritmi voi viedä enimmillään O(M*N) aikaa, missä M ja N ovat verrattavien merkkijonojen pituudet. Nämä ovat sovelluksen alustavat aikavaativuustavoitteet.
 
 ## Kielet
