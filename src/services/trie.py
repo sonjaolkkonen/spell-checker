@@ -19,3 +19,16 @@ class Trie:
             dict_keys: An iterable view of the dictionary's keys.
         """
         return self.words.keys()
+
+    @staticmethod
+    def load_words(file_path):
+        """Loads words from a file and returns them as a list.
+
+        Args:
+            file_path (str): Path to the file containing words.
+
+        Returns:
+            list: a list of words.
+        """
+        with open(file_path, 'r') as file:
+            return [line.strip() for line in file.readlines()]
