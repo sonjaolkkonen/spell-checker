@@ -1,6 +1,6 @@
 class DamerauLevenshtein:
     def __init__(self):
-        """Class constructor which creates a new DamerauLevenshtein object
+        """Class constructor which creates a new DamerauLevenshtein object.
         """
 
     def damerau_levenshtein_distance(word1, word2):

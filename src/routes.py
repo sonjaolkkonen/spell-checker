@@ -12,4 +12,9 @@ def index():
 
 @app.route("/check", methods=["POST"])
 def check():
+    """Method which returns result.html page
+    
+    Returns:
+        result.html page
+    """
     return render_template("result.html")
