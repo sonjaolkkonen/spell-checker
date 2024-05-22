@@ -1,20 +1,18 @@
-from flask import render_template
+from flask import render_template, request
 from app import app
+from services.spell_checker import SpellChecker
 
-@app.route("/")
+spell_checker = SpellChecker()
+
+@app.route("/", methods=["GET", "POST"])
 def index():
-    """Method which returns index.html page
+    """Handles the index page and processes the form submission.
 
     Returns:
         index.html page
     """
-    return render_template("index.html")
-
-@app.route("/check", methods=["POST"])
-def check():
-    """Method which returns result.html page
-    
-    Returns:
-        result.html page
-    """
-    return render_template("result.html")
+    suggestion = None
+    if request.method == "POST":
+        incorrect_word = request.form["word"]
+        suggestion = spell_checker.suggest(incorrect_word)
+    return render_template("index.html", suggestion=suggestion)
