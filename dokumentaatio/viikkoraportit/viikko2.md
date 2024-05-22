@@ -5,5 +5,5 @@
 | ----------| ----------------- | ---------- |
 | 19.5.| 1 h | Käyttöjärjestelmän ensimmäinen alustava versio |
 | 20.-21.5. | 5 h | Damerau-Lehvenshtein algoritmin ensimmäinen versio, Trie-tiedoston alustava versio |
-| - | - h | - |
+| 22.5. | 5 h | Docstringien kirjoittelua, algoritmin bugien korjaus, käyttöjärjestelmän muokkaus, ensimmäinen versio SpellChecker-luokasta |
 | **yhteensä** | **- h** |
