@@ -3,7 +3,7 @@ class DamerauLevenshtein:
         """Class constructor which creates a new DamerauLevenshtein object.
         """
 
-    def damerau_levenshtein_distance(word1, word2):
+    def damerau_levenshtein_distance(self, word1, word2):
         """Method which gives the distance of two given strings
 
         Args:
@@ -14,13 +14,14 @@ class DamerauLevenshtein:
             int: distance
         """
         #create a 2D table to store the distances
-        d = [[0] + (len(word1) + 1) for _ in range(len(word2) + 1)]
+        d = [[0] * (len(word2) + 1) for _ in range(len(word1) + 1)]
+
 
         #initialize the table
         for i in range(len(word1) + 1):
             d[i][0] = i
         for j in range(len(word2) +1):
-            d[j][0] = j
+            d[0][j] = j
 
         #populate the table
         for i in range(1, len(word1) +1):
