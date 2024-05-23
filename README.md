@@ -10,4 +10,27 @@ Ohjelma on toteutettu tallettamalla mahdollisia suomen kielen sanoja trie-tietor
 [Vaatimusmäärittely](https://github.com/sonjaolkkonen/spell-checker/blob/main/dokumentaatio/vaatimusmaarittely.md)
 
 ## 📆 Viikkoraportit
-[Viikko 1](https://github.com/sonjaolkkonen/spell-checker/blob/main/dokumentaatio/viikkoraportit/viikko1.md)
+- [Viikko 1](https://github.com/sonjaolkkonen/spell-checker/blob/main/dokumentaatio/viikkoraportit/viikko1.md)
+- [Viikko 2](https://github.com/sonjaolkkonen/spell-checker/blob/main/dokumentaatio/viikkoraportit/viikko2.md)
+
+## ⚙️ Asennus- ja käynnistysohjeet
+
+Kloonaa repositio omalle koneellesi:
+```
+ git clone git@github.com:sonjaolkkonen/spell-checker.git
+```
+
+Käynnistä poetry projektin juurihakemistissa:
+```
+poetry shell
+```
+
+Lataa projektin riippuvuudet:
+```
+poetry install
+```
+
+Mene src-kansioon ja käynnistä sovellus virtuaaliympäristössä:
+```
+flask run
+```
