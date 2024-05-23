@@ -10,15 +10,15 @@
         <p>Syötä tarkistettava sana (enintään 30 merkkiä):</p>
         <form method="post" class="mt-3">
             <div class="form-group">
-                <label for="word">Enter a word:</label>
+                <label for="word">Anna sana:</label>
                 <input type="text" class="form-control" id="word" name="word" required>
             </div>
-            <button type="submit" class="btn btn-primary">Check</button>
+            <button type="submit" class="btn btn-primary">Tarkista</button>
         </form>
         {% if suggestion %}
             <div class="alert alert-info mt-3" role="alert">
                 <br><br>
-                Did you mean: <strong>{{ suggestion }}</strong>?
+                Tarkoititko: <strong>{{ suggestion }}</strong>?
             </div>
         {% endif %}
     </body>
