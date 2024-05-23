@@ -1,3 +1,5 @@
+![GHA workflow badge](https://github.com/sonjaolkkonen/spell-checker/workflows/CI/badge.svg)
+
 # Spell Checker - Kirjoitusvirheiden korjaaja
 
 Spell Checker on ohjelma, joka tarjoaa korjausehdotuksia käyttäjän väärin kirjoittamille sanoille.
