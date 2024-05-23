@@ -1,4 +1,4 @@
-![GHA workflow badge](https://github.com/sonjaolkkonen/spell-checker/workflows/CI/badge.svg)
+![GHA workflow badge](https://github.com/sonjaolkkonen/spell-checker/workflows/CI/badge.svg) [![codecov](https://codecov.io/github/sonjaolkkonen/spell-checker/graph/badge.svg?token=L0PHFZ9ZRR)](https://codecov.io/github/sonjaolkkonen/spell-checker)
 
 # Spell Checker - Kirjoitusvirheiden korjaaja
 
