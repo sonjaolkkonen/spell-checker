@@ -18,4 +18,4 @@ Ensi viikolla tarkoituksena on korvata sanakirja trie-tietorakenteella. SpellChe
 | 20.-21.5. | 6 h | Damerau-Lehvenshtein algoritmin ensimmäinen versio, Trie-tiedoston alustava versio (sanakirja) |
 | 22.5. | 4 h | Docstringien kirjoittelua, algoritmin bugien korjaus, käyttöliittymän muokkaus, ensimmäinen versio SpellChecker-luokasta |
 | 23.5. | 4 h | Damerau-Lehvenstein algoritmin yksikkötestit, GitHub Actions, Codecov, viikkoraportti |
-| **yhteensä** | ** 15 h** |
+| **yhteensä** | **15 h** |
