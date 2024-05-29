@@ -3,7 +3,7 @@
 ## Tuntikirjanpito 
 | **Päivä** | **Käytetty aika** | **Kuvaus** |
 | ----------| ----------------- | ---------- |
-| 29.5.| 3 h | Trie-tietorakenteen ensimmäinen versio ja sen yksikkötestit |
+| 29.5.| 5 h | Trie-tietorakenteen ensimmäinen versio ja sen yksikkötestit, SpellChecker-luokan muokkaus |
 | - | - |  |
 | - | - |  |
 | - | - |  |
