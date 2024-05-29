@@ -17,3 +17,13 @@ class TestTrie(unittest.TestCase):
         self.assertTrue(self.trie.search("apina"))
         self.assertTrue(self.trie.search("hevonen"))
     
+    def test_search_with_word_in_trie(self):
+        self.assertTrue(self.trie.search("kissa"))
+
+    def test_search_with_word_not_in_trie(self):
+        self.assertFalse(self.trie.search("maito"))
+
+    def test_get_words(self):
+        words = self.trie.get_words()
+        expected_words = ["kissa", "koira", "lehmä", "apina", "hevonen"]
+        self.assertCountEqual(words, expected_words)
