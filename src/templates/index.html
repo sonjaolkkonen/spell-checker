@@ -15,15 +15,18 @@
             <br><br>
             <button type="submit" class="btn btn-primary">Tarkista</button>
         </form>
-        {% if suggestion %}
+        {% if suggestions %}
             <div class="alert alert-info mt-3" role="alert">
                 <br><br>
-                Tarkoititko: <strong>{{ suggestion }}</strong>?
-            </div>
-            {% else %}
-            <div class="alert alert-info mt-3" role="aler">
-                <br><br>
-                Ei kirjoitusvirheitä!
+                {% if suggestions ==  "Ei kirjoitusvirheitä" %}
+                    Ei kirjoitusvirheitä!
+                {% else %}
+                    Tarkoititko:
+                        {% for suggestion in suggestions %}
+                            <strong>{{ suggestion }}</strong>
+                        {% endfor %}
+                    ?
+                {% endif %}
             </div>
         {% endif %}
     </body>

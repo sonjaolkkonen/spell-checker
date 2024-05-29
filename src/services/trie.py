@@ -62,6 +62,17 @@ class Trie:
             words.append(prefix)
         for char, next_node in node.children.items():
             self._dfs(next_node, prefix + char, words)
+    
+    def get_words_with_prefix(self, prefix):
+        current = self.root
+        for letter in prefix:
+            if letter not in current.children:
+                return []
+            current = current.children[letter]
+        
+        words = []
+        self._dfs(current, prefix, words)
+        return words
 
     @staticmethod
     def load_words(file_path):

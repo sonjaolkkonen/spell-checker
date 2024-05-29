@@ -23,13 +23,14 @@ class SpellChecker():
         Returns:
             str: the closest matching word from the trie (currently dictionary)
         """
-        min_distance = float('inf')
-        closest_word = None
-        for candidate in self.trie.get_words():
+
+        if self.trie.search(word):
+            return "Ei kirjoitusvirheitä"
+
+        suggestions = []
+        candidates = self.trie.get_words_with_prefix(word[0])
+        for candidate in candidates:
             distance = self.dl.damerau_levenshtein_distance(word, candidate)
-            if distance == 0:
-                return False
-            if distance < min_distance:
-                min_distance = distance
-                closest_word = candidate
-        return closest_word
+            if distance <= 1:
+                suggestions.append(candidate)
+        return suggestions

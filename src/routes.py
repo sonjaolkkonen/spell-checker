@@ -11,8 +11,8 @@ def index():
     Returns:
         index.html page
     """
-    suggestion = None
+    suggestions = None
     if request.method == "POST":
         incorrect_word = request.form["word"]
-        suggestion = spell_checker.suggest(incorrect_word)
-    return render_template("index.html", suggestion=suggestion)
+        suggestions = spell_checker.suggest(incorrect_word)
+    return render_template("index.html", suggestions=suggestions)
