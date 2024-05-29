@@ -27,6 +27,8 @@ class SpellChecker():
         closest_word = None
         for candidate in self.trie.get_words():
             distance = self.dl.damerau_levenshtein_distance(word, candidate)
+            if distance == 0:
+                return False
             if distance < min_distance:
                 min_distance = distance
                 closest_word = candidate
