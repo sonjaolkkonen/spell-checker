@@ -6,7 +6,7 @@ dirname = os.path.dirname(__file__)
 
 class SpellChecker():
     def __init__(self):
-        """Class constructor which creates a new DamerauLevenshtein object.
+        """Class constructor which creates a new DamerauLevenshtein object
         """
         self.trie = Trie()
         self.dl = DamerauLevenshtein()
@@ -15,17 +15,17 @@ class SpellChecker():
             self.trie.insert(word)
 
     def suggest(self, word):
-        """Suggest the closest word from the dictionary to the given word.
+        """Suggest the closest word from the dictionary to the given word
 
         Args:
-            word (str): The word for which to find the closest match.
+            word (str): the word for which to find the closest match
 
         Returns:
-            str: The closest matching word from the trie (currently dictionary). 
+            str: the closest matching word from the trie (currently dictionary)
         """
         min_distance = float('inf')
         closest_word = None
-        for candidate in self.trie.keys():
+        for candidate in self.trie.get_words():
             distance = self.dl.damerau_levenshtein_distance(word, candidate)
             if distance < min_distance:
                 min_distance = distance
