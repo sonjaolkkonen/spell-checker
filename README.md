@@ -7,11 +7,13 @@ Spell Checker on ohjelma, joka tarjoaa korjausehdotuksia käyttäjän väärin k
 Ohjelma on toteutettu tallettamalla mahdollisia suomen kielen sanoja trie-tietorakenteeseen ja vertaamalla käyttäjän väärinkirjoitetun merkkijonon etäisyyttä oikein kirjoitettuihin sanoihin Damerau–Levenshtein -etäisyysmittaa käyttämällä.
 
 ## 📄 Dokumentaatio
-[Vaatimusmäärittely](https://github.com/sonjaolkkonen/spell-checker/blob/main/dokumentaatio/vaatimusmaarittely.md)
+- [Vaatimusmäärittely](https://github.com/sonjaolkkonen/spell-checker/blob/main/dokumentaatio/vaatimusmaarittely.md)
+- [Testausdokumentti](https://github.com/sonjaolkkonen/spell-checker/blob/main/dokumentaatio/testausdokumentti.md)
 
 ## 📆 Viikkoraportit
 - [Viikko 1](https://github.com/sonjaolkkonen/spell-checker/blob/main/dokumentaatio/viikkoraportit/viikko1.md)
 - [Viikko 2](https://github.com/sonjaolkkonen/spell-checker/blob/main/dokumentaatio/viikkoraportit/viikko2.md)
+- [Viikko 3](https://github.com/sonjaolkkonen/spell-checker/blob/main/dokumentaatio/viikkoraportit/viikko3.md)
 
 ## ⚙️ Asennus- ja käynnistysohjeet
 
