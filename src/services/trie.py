@@ -10,7 +10,7 @@ class Trie:
         """Class constructor which initializes a new Trie object
         """
         self.root = TrieNode()
-    
+
     def insert(self, word):
         """Inserts words into the trie
 
@@ -20,7 +20,7 @@ class Trie:
         node = self.root
         for char in word:
             if char not in node.children:
-                 node.children[char] = TrieNode()
+                node.children[char] = TrieNode()
             node = node.children[char]
         node.end_of_word = True
 
@@ -39,7 +39,7 @@ class Trie:
                 return False
             node = node.children[char]
         return node.end_of_word
-    
+
     def get_words(self):
         """Get all the words stored in the trie
 
@@ -49,7 +49,7 @@ class Trie:
         words = []
         self._dfs(self.root, "", words)
         return words
-    
+
     def _dfs(self, node, prefix, words):
         """Depth-first search to collect all words from the trie
 
@@ -62,14 +62,14 @@ class Trie:
             words.append(prefix)
         for char, next_node in node.children.items():
             self._dfs(next_node, prefix + char, words)
-    
+
     def get_words_with_prefix(self, prefix):
         current = self.root
         for letter in prefix:
             if letter not in current.children:
                 return []
             current = current.children[letter]
-        
+
         words = []
         self._dfs(current, prefix, words)
         return words
@@ -84,5 +84,5 @@ class Trie:
         Returns:
             list: a list of words
         """
-        with open(file_path, 'r') as file:
+        with open(file_path, 'r', encoding="utf-8") as file:
             return [line.strip() for line in file.readlines()]
