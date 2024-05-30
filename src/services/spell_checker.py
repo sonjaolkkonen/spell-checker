@@ -6,7 +6,7 @@ dirname = os.path.dirname(__file__)
 
 class SpellChecker():
     def __init__(self):
-        """Class constructor which creates a new DamerauLevenshtein object
+        """Class constructor which creates a new SpellChecker object
         """
         self.trie = Trie()
         self.dl = DamerauLevenshtein()
