@@ -56,6 +56,14 @@ class Trie:
             self._dfs(next_node, prefix + char, words)
 
     def get_words_with_prefix(self, prefix):
+        """Get all the words with the given prefix
+
+        Args:
+            prefix (str): prefix of the given word
+
+        Returns:
+            list: list of words that start with the given prefix
+        """
         current = self.root
         for letter in prefix:
             if letter not in current.children:
