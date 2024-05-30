@@ -7,4 +7,8 @@ Yksikkötesteissä on hyödynnetty unittest-kirjastoa ja ne kattavat src/service
 ### Testikattavuusraportti
 ![image](https://github.com/sonjaolkkonen/spell-checker/assets/117500758/176ca414-6420-4f90-bce1-427de8d4bb0d)
 
+## Manuaalinen testaus
+Sovellusta testataan manuaalisesti antamalla käyttöliittymälle erilaisia testisyötteitä. 
 
+## Suorituskykytestaus
+Sovellusta testataan suorituskyvyn osin.
