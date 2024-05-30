@@ -29,11 +29,22 @@ class TestTrie(unittest.TestCase):
     def test_search_with_none(self):
         self.assertEqual(self.trie.search(None), False)
 
+    def test_search_with_empty_trie(self):
+        trie = Trie()
+        self.assertFalse(trie.search("omena"))
+        self.assertFalse(trie.search("banaani"))
+        self.assertFalse(trie.search(""))
+
     def test_get_words(self):
         words = self.trie.get_words()
         expected_words = ["kissa", "koira", "lehmä", "apina", "hevonen"]
         self.assertCountEqual(words, expected_words)
-    
+
+    def test_get_words_with_empty_trie(self):
+        trie = Trie()
+        result = trie.get_words()
+        self.assertEqual(result, [])
+
     def test_get_words_with_prefix(self):
         self.assertEqual(self.trie.get_words_with_prefix("kis"), ["kissa"])
         self.assertEqual(self.trie.get_words_with_prefix("k"), ["kissa", "koira"])
@@ -46,4 +57,5 @@ class TestTrie(unittest.TestCase):
 
     def test_get_words_with_prefix_does_not_exist(self):
         self.assertEqual(self.trie.get_words_with_prefix("karhu"), [])
+
         
