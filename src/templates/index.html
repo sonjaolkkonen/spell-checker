@@ -25,9 +25,12 @@
                 {% else %}
                     Tarkoititko:
                         {% for suggestion in suggestions %}
-                            <strong>{{ suggestion }}</strong>
+                            {% if suggestion == suggestions[-1] %}
+                                <strong>{{ suggestion }}</strong>?
+                            {% else %}
+                                <strong>{{ suggestion }}</strong>,
+                            {% endif %}    
                         {% endfor %}
-                    ?
                 {% endif %}
             </div>
         {% endif %}
