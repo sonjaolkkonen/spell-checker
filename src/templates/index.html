@@ -20,6 +20,8 @@
                 <br><br>
                 {% if suggestions ==  "Ei kirjoitusvirheitä" %}
                     Ei kirjoitusvirheitä!
+                {% elif suggestions == "Anna sana" %}
+                    Anna ensin sana tarkistaaksesi oikeinkirjoituksen
                 {% else %}
                     Tarkoititko:
                         {% for suggestion in suggestions %}

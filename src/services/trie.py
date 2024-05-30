@@ -33,6 +33,8 @@ class Trie:
         Returns:
             bool: True if the word is found, otherwise False
         """
+        if not word:
+            return False
         node = self.root
         for char in word:
             if char not in node.children:

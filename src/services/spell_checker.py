@@ -24,6 +24,9 @@ class SpellChecker():
             str: the closest matching word from the trie (currently dictionary)
         """
 
+        if not word:
+            return "Anna sana"
+
         if self.trie.search(word):
             return "Ei kirjoitusvirheitä"
 
