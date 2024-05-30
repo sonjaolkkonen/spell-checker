@@ -22,6 +22,12 @@ class TestTrie(unittest.TestCase):
 
     def test_search_with_word_not_in_trie(self):
         self.assertFalse(self.trie.search("maito"))
+    
+    def test_search_with_empty_string(self):
+        self.assertEqual(self.trie.search(""), False)
+
+    def test_search_with_none(self):
+        self.assertEqual(self.trie.search(None), False)
 
     def test_get_words(self):
         words = self.trie.get_words()
