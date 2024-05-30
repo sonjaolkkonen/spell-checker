@@ -42,16 +42,6 @@ class Trie:
             node = node.children[char]
         return node.end_of_word
 
-    def get_words(self):
-        """Get all the words stored in the trie
-
-        Returns:
-            list: list of words stored in the trie
-        """
-        words = []
-        self._dfs(self.root, "", words)
-        return words
-
     def _dfs(self, node, prefix, words):
         """Depth-first search to collect all words from the trie
 

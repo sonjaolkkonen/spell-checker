@@ -35,14 +35,9 @@ class TestTrie(unittest.TestCase):
         self.assertFalse(trie.search("banaani"))
         self.assertFalse(trie.search(""))
 
-    def test_get_words(self):
-        words = self.trie.get_words()
-        expected_words = ["kissa", "koira", "lehmä", "apina", "hevonen"]
-        self.assertCountEqual(words, expected_words)
-
     def test_get_words_with_empty_trie(self):
         trie = Trie()
-        result = trie.get_words()
+        result = trie.get_words_with_prefix("")
         self.assertEqual(result, [])
 
     def test_get_words_with_prefix(self):
