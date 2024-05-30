@@ -15,6 +15,9 @@ class TestSpellChecker(unittest.TestCase):
     def test_no_typo(self):
         self.assertEqual(self.spell_checker.suggest("omena"), "Ei kirjoitusvirheitä")
 
+    def test_empty_input(self):
+        self.assertEqual(self.spell_checker.suggest(""), "Anna sana")
+
     def test_single_typo(self):
         self.assertIn("omena", self.spell_checker.suggest("omen"))
 
