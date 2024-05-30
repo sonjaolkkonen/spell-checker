@@ -13,6 +13,7 @@ flask = "^3.0.3"
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.1"
 coverage = "^7.5.1"
+pylint = "^3.2.2"
 
 [build-system]
 requires = ["poetry-core"]
