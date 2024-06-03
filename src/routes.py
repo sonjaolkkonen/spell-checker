@@ -13,6 +13,6 @@ def index():
     """
     suggestions = None
     if request.method == "POST":
-        incorrect_word = request.form["word"]
-        suggestions = spell_checker.suggest(incorrect_word)
+        text = request.form["text"]
+        suggestions = spell_checker.suggest_text(text)
     return render_template("index.html", suggestions=suggestions)

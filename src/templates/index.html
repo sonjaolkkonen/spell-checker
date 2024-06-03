@@ -6,11 +6,11 @@
     </head>
     <body>
         <h1>Spell Checker - Kirjoitusvirheiden korjaaja</h1>
-        <p>Spell Checker tarkistaa syöttämäsi sanan oikeinkirjoituksen puolestasi.</p>
+        <p>Spell Checker tarkistaa syöttämäsi tekstin oikeinkirjoituksen puolestasi.</p>
         <form method="post" class="mt-3">
             <div class="form-group">
-                <label for="word">Anna sana:</label>
-                <input type="text" class="form-control" id="word" name="word" required, maxlength="30">
+                <label for="text">Syötä teksti:</label>
+                <input type="text" class="form-control" id="text" name="text" required, maxlength="200">
             </div>
             <br><br>
             <button type="submit" class="btn btn-primary">Tarkista</button>
@@ -24,15 +24,17 @@
                     Anna ensin sana tarkistaaksesi oikeinkirjoituksen
                 {% else %}
                     Tarkoititko:
-                        {% for suggestion in suggestions %}
-                            {% if suggestion == suggestions[-1] %}
-                                <strong>{{ suggestion }}</strong>?
-                            {% else %}
-                                <strong>{{ suggestion }}</strong>,
-                            {% endif %}    
-                        {% endfor %}
-                {% endif %}
+                        <ul>
+                            {% for word, suggestion in suggestions.items() %}
+                                <li>{{ word }}: 
+                                    {% for s in suggestion %}
+                                        <strong>{{ s }}</strong>{% if not loop.last %}, {% endif %}
+                                    {% endfor %}
+                                </li>
+                            {% endfor %}
+                        </ul>
             </div>
+                {% endif %}
         {% endif %}
     </body>
 </html>

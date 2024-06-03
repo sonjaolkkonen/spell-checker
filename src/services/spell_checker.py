@@ -15,13 +15,13 @@ class SpellChecker():
             self.trie.insert(word)
 
     def suggest(self, word):
-        """Suggest the closest word from the dictionary to the given word
+        """Suggest the closest word from the trie to the given word
 
         Args:
             word (str): the word for which to find the closest match
 
         Returns:
-            str: the closest matching word from the trie (currently dictionary)
+            list: the closest matching words from the trie
         """
 
         if not word:
@@ -36,4 +36,23 @@ class SpellChecker():
             distance = self.dl.damerau_levenshtein_distance(word, candidate)
             if distance <= 1:
                 suggestions.append(candidate)
+        return suggestions
+    
+    def suggest_text(self, text):
+        """Suggest closest word from the trie to all the owrds of the given text
+
+        Args:
+            text (str): the words for which to find the closest match
+
+        Returns:
+            dict: the closest matching words for each word from the trie
+        """
+        words = text.split()
+        suggestions = {}
+        for word in words:
+            suggestion = self.suggest(word)
+            if suggestion != "Ei kirjoitusvirheitä":
+                suggestions[word] = suggestion
+        if not suggestions:
+            return "Ei kirjoitusvirheitä"
         return suggestions
