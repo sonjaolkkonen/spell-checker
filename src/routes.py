@@ -1,7 +1,7 @@
-from flask import render_template, request
-from app import app
+from flask import Flask, render_template, request
 from services.spell_checker import SpellChecker
 
+app = Flask(__name__)
 spell_checker = SpellChecker()
 
 @app.route("/", methods=["GET", "POST"])
