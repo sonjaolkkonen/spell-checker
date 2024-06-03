@@ -32,7 +32,17 @@ Lataa projektin riippuvuudet:
 poetry install
 ```
 
-Mene src-kansioon ja käynnistä sovellus virtuaaliympäristössä:
+Käynnistä sovellus:
 ```
-flask run
+poetry run invoke start
+```
+
+Aja yksikkötestit:
+```
+poetry run invoke test
+```
+
+Muodosta testikattavuusraportti:
+```
+poetry run invoke coverage
 ```
