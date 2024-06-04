@@ -32,3 +32,12 @@ class TestSpellChecker(unittest.TestCase):
 
     def test_no_suggestions(self):
         self.assertEqual(self.spell_checker.suggest("kakku"), [])
+
+    def test_no_typo_in_sentence(self):
+        self.assertEqual(self.spell_checker.suggest_text("omena appelsiini banaani"), "Ei kirjoitusvirheitä")
+
+    def test_typo_in_one_word(self):
+        self.assertEqual(self.spell_checker.suggest_text("omen appelsiini banaani"), {"omen": ["omena"]})
+
+    def test_typo_in_two_words(self):
+        self.assertEqual(self.spell_checker.suggest_text("banani apelsiini omena"), {"banani":["banaani"], "apelsiini":["appelsiini"]})
