@@ -10,9 +10,18 @@ class SpellChecker():
         """
         self.trie = Trie()
         self.dl = DamerauLevenshtein()
-        self.words = Trie.load_words(os.path.join(dirname, "../", "data", "words.txt"))
-        for word in self.words:
-            self.trie.insert(word)
+        self.create_vocabulary()
+
+    def create_vocabulary(self):
+        words = self.trie.load_words(os.path.join(dirname, "../", "data", "words.txt"))
+        for word in words:
+            self.trie.insert(word.lower())
+
+    def find_word(self, word):
+        for char in word:
+            if char.isnumeric():
+                return False
+        return self.trie.search(word.lower())
 
     def suggest(self, word):
         """Suggest the closest word from the trie to the given word
