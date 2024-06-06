@@ -13,6 +13,7 @@ class Trie:
         """Class constructor which initializes a new Trie object
         """
         self.root = TrieNode("")
+        self.content = []
 
     def insert(self, word):
         """Inserts words into the trie
@@ -65,9 +66,8 @@ class Trie:
         Returns:
             list: content of the trie
         """
-        self.content = []
         self._dfs(self.root, "")
-        return self.content 
+        return self.content
 
     @staticmethod
     def load_words(file_path):

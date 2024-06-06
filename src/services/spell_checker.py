@@ -59,7 +59,7 @@ class SpellChecker():
                 if one_word:
                     return suggestions
         return suggestions
-    
+
     def fix_typos(self, words):
         """Fixes typos in the text
 
@@ -80,9 +80,9 @@ class SpellChecker():
 
             else:
                 corrected_words.append(word)
-        
+
         return corrected_words
-    
+
     def parse_text(self, text):
         """Splits text into separated words
 
@@ -93,7 +93,7 @@ class SpellChecker():
             list: list of parsed words
         """
         return text.split()
-    
+
     def return_into_text(self, words):
         """Returns words into coherent text
 
@@ -104,5 +104,3 @@ class SpellChecker():
             str: combined text
         """
         return " ".join(words)
-    
-            
