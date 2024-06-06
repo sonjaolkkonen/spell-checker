@@ -13,4 +13,4 @@ Ensi viikolla suunnitelmana olisi muuttaa sovelluksen toimintaa niin, että käy
 | ----------| ----------------- | ---------- |
 | 29.5.| 5 h | Trie-tietorakenteen ensimmäinen versio ja sen yksikkötestit, SpellChecker-luokan muokkaus |
 | 30.5. | 6 h | Trie- ja SpellChecker -luokan muokkaus ja yksikkötestit, pylintin käyttöönotto, testausdokumentin aloitus, viikkoraportointi |
-| **yhteensä** | **11** |
+| **yhteensä** | **11 h** |
