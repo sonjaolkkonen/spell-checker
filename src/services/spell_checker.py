@@ -42,7 +42,7 @@ class SpellChecker():
         vocabulary = self.trie.get_trie_content()
         suggestions = []
         for vocabulary_word in vocabulary:
-            distance = self.dl.damerau_levenshtein_distance(word, vocabulary_word)
+            distance = self.dl.damerau_levenshtein_distance(word.strip().lower(), vocabulary_word)
             if distance <= 1:
                 suggestions.append(vocabulary_word)
         return suggestions
