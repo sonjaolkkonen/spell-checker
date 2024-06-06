@@ -51,19 +51,23 @@ class SpellChecker():
     
     def fix_typos(self, words):
         corrected_words = []
-        unable_to_correct = False
         for word in words:
-            if len(word) <1 and not self.find_word(word.lower()):
+            if len(word) > 1 and not self.find_word(word.lower()):
                 suggestions = self.suggest(word.lower(), True)
                 if suggestions == "Ei kirjoitusvirheitä":
                     corrected_words.append(word)
-                    unable_to_correct = True
                 else:
-                    corrected_words.append[suggestions[0]]
+                    corrected_words.append(suggestions[0])
 
             else:
                 corrected_words.append(word)
         
-        return corrected_words, unable_to_correct
+        return corrected_words
+    
+    def parse_text(self, text):
+        return text.split()
+    
+    def return_into_text(self, words):
+        return " ".join(words)
     
             
