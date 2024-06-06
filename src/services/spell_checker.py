@@ -23,7 +23,7 @@ class SpellChecker():
                 return False
         return self.trie.search(word.lower())
 
-    def suggest(self, word):
+    def suggest(self, word, one_word = False):
         """Suggest the closest word from the trie to the given word
 
         Args:
@@ -45,23 +45,25 @@ class SpellChecker():
             distance = self.dl.damerau_levenshtein_distance(word.strip().lower(), vocabulary_word)
             if distance <= 1:
                 suggestions.append(vocabulary_word)
+                if one_word:
+                    return suggestions
         return suggestions
     
-    def suggest_text(self, text):
-        """Suggest closest word from the trie to all the owrds of the given text
-
-        Args:
-            text (str): the words for which to find the closest match
-
-        Returns:
-            dict: the closest matching words for each word from the trie
-        """
-        words = text.split()
-        suggestions = {}
+    def fix_typos(self, words):
+        corrected_words = []
+        unable_to_correct = False
         for word in words:
-            suggestion = self.suggest(word)
-            if suggestion != "Ei kirjoitusvirheitä":
-                suggestions[word] = suggestion
-        if not suggestions:
-            return "Ei kirjoitusvirheitä"
-        return suggestions
+            if len(word) <1 and not self.find_word(word.lower()):
+                suggestions = self.suggest(word.lower(), True)
+                if suggestions == "Ei kirjoitusvirheitä":
+                    corrected_words.append(word)
+                    unable_to_correct = True
+                else:
+                    corrected_words.append[suggestions[0]]
+
+            else:
+                corrected_words.append(word)
+        
+        return corrected_words, unable_to_correct
+    
+            
