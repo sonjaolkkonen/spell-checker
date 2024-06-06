@@ -21,5 +21,13 @@ def check_spelling():
         return render_template("index.html", suggestions=suggestions)
     suggestions = spell_checker.suggest(word)
     return render_template("index.html", suggestions=suggestions)
-    
 
+@app.route("/fix_spelling", methods=["POST"])
+def fix_spelling():
+    text = spell_checker.parse_text(request.form.get("input_text"))
+    print(text)
+    fixed_words = spell_checker.fix_typos(text)
+    print(fixed_words)
+    fixed_text = spell_checker.return_into_text(fixed_words)
+    print(fixed_text)
+    return render_template("result.html", fixed_text=fixed_text)
