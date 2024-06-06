@@ -15,6 +15,11 @@ def index():
 
 @app.route("/check_spelling", methods=["POST"])
 def check_spelling():
+    """Checks the spelling of the given word
+
+    Returns:
+        index.html page which shows suggestions for the given word
+    """
     word = request.form.get("input_word")
     if spell_checker.find_word(word):
         suggestions = "Ei kirjoitusvirheitä"
@@ -24,6 +29,11 @@ def check_spelling():
 
 @app.route("/fix_spelling", methods=["POST"])
 def fix_spelling():
+    """Fixes typos of the given text
+
+    Returns:
+        result.html page which includes the fixed text
+    """
     text = spell_checker.parse_text(request.form.get("input_text"))
     print(text)
     fixed_words = spell_checker.fix_typos(text)

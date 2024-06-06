@@ -28,7 +28,7 @@ class Trie:
         node.end_of_word = True
 
     def search(self, word):
-        """Search for a given word from the trie
+        """Searchs for a given word from the trie
 
         Args:
             word (str): The word to be searched
@@ -60,6 +60,11 @@ class Trie:
 
 
     def get_trie_content(self):
+        """Returns content of the trie
+
+        Returns:
+            list: content of the trie
+        """
         self.content = []
         self._dfs(self.root, "")
         return self.content 
