@@ -30,12 +30,12 @@ class SpellChecker():
         if self.trie.search(word):
             return "Ei kirjoitusvirheitä"
 
+        vocabulary = self.trie.get_trie_content()
         suggestions = []
-        candidates = self.trie.get_words_with_prefix(word[0])
-        for candidate in candidates:
-            distance = self.dl.damerau_levenshtein_distance(word, candidate)
+        for vocabulary_word in vocabulary:
+            distance = self.dl.damerau_levenshtein_distance(word, vocabulary_word)
             if distance <= 1:
-                suggestions.append(candidate)
+                suggestions.append(vocabulary_word)
         return suggestions
     
     def suggest_text(self, text):

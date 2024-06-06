@@ -1,15 +1,18 @@
 class TrieNode:
-    def __init__(self):
+    def __init__(self, char):
         """class constructor which describes a single node of the trie
+
+        Args: char (str): the character of the node
         """
         self.children = {}
         self.end_of_word = False
+        self.char = char
 
 class Trie:
     def __init__(self):
         """Class constructor which initializes a new Trie object
         """
-        self.root = TrieNode()
+        self.root = TrieNode("")
 
     def insert(self, word):
         """Inserts words into the trie
@@ -20,7 +23,7 @@ class Trie:
         node = self.root
         for char in word:
             if char not in node.children:
-                node.children[char] = TrieNode()
+                node.children[char] = TrieNode(char)
             node = node.children[char]
         node.end_of_word = True
 
@@ -42,37 +45,24 @@ class Trie:
             node = node.children[char]
         return node.end_of_word
 
-    def _dfs(self, node, prefix, words):
+    def _dfs(self, node, prev):
         """Depth-first search to collect all words from the trie
 
         Args:
             node (TrieNode): the current node
-            prefix (str): the current prefix of the word
-            words (list): the list to collect words
+            prev (str): previous letter
         """
         if node.end_of_word:
-            words.append(prefix)
-        for char, next_node in node.children.items():
-            self._dfs(next_node, prefix + char, words)
+            self.content.append(prev + node.char)
 
-    def get_words_with_prefix(self, prefix):
-        """Get all the words with the given prefix
+        for child in node.children.values():
+            self._dfs(child, prev + node.char)
 
-        Args:
-            prefix (str): prefix of the given word
 
-        Returns:
-            list: list of words that start with the given prefix
-        """
-        current = self.root
-        for letter in prefix:
-            if letter not in current.children:
-                return []
-            current = current.children[letter]
-
-        words = []
-        self._dfs(current, prefix, words)
-        return words
+    def get_trie_content(self):
+        self.content = []
+        self._dfs(self.root, "")
+        return self.content 
 
     @staticmethod
     def load_words(file_path):
