@@ -9,6 +9,7 @@ Ohjelma on toteutettu tallettamalla mahdollisia suomen kielen sanoja trie-tietor
 ## 📄 Dokumentaatio
 - [Vaatimusmäärittely](https://github.com/sonjaolkkonen/spell-checker/blob/main/dokumentaatio/vaatimusmaarittely.md)
 - [Testausdokumentti](https://github.com/sonjaolkkonen/spell-checker/blob/main/dokumentaatio/testausdokumentti.md)
+- [Toteutusdokumentti](https://github.com/sonjaolkkonen/spell-checker/blob/main/dokumentaatio/toteutusdokumentti.md)
 
 ## 📆 Viikkoraportit
 - [Viikko 1](https://github.com/sonjaolkkonen/spell-checker/blob/main/dokumentaatio/viikkoraportit/viikko1.md)
