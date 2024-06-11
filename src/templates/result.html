@@ -7,6 +7,9 @@
     </head>
     <body>
         <h1>Korjattu teksti:</h1>
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
         <textarea id="textbox" rows="15"> {{ fixed_text }}</textarea>
 
     </body>

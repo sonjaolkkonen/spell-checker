@@ -69,20 +69,24 @@ class SpellChecker():
 
         Returns:
             list: list of fixed words
+            bool: True if all words can be fixed, False if not
         """
         corrected_words = []
+        able_to_correct = True
+
         for word in words:
             if len(word) > 1 and not self.find_word(word.lower()):
                 suggestions = self.suggest(word.lower(), True)
-                if suggestions == "Ei kirjoitusvirheitä":
+                if len(suggestions) == 0:
                     corrected_words.append(word)
+                    able_to_correct = False                
                 else:
                     corrected_words.append(suggestions[0])
 
             else:
                 corrected_words.append(word)
 
-        return corrected_words
+        return [corrected_words, able_to_correct]
 
     def parse_text(self, text):
         """Splits text into separated words

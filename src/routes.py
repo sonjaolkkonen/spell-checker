@@ -39,5 +39,8 @@ def fix_spelling():
     """
     text = spell_checker.parse_text(request.form.get("input_text"))
     fixed_words = spell_checker.fix_typos(text)
-    fixed_text = spell_checker.return_into_text(fixed_words)
+    fixed_text = spell_checker.return_into_text(fixed_words[0])
+    able_to_correct = fixed_words[1]
+    if not able_to_correct:
+        return render_template("result.html", fixed_text=fixed_text, message="Huom! Kaikkia sanoja ei voitu korjata.")
     return render_template("result.html", fixed_text=fixed_text)
