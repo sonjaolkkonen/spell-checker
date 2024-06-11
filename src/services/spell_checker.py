@@ -109,3 +109,14 @@ class SpellChecker():
             str: combined text
         """
         return " ".join(words)
+    
+    def add_word(self, word):
+        if not word:
+            return False
+        word_parsed = word.strip().lower()
+        if not self.find_word(word_parsed):
+            self.trie.insert(word_parsed)
+            with open(os.path.join(dirname, "../", "data", "words.txt"), mode="a", encoding="UTF-8") as file:
+                file.write(word_parsed + "\n")
+            return True
+        return False

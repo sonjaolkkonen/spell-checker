@@ -24,25 +24,12 @@
             <input type="submit" class="button" value="Tarkista">
         </form>
 
-        {% if suggestions %}
+        {% if suggestions == "Ei kirjoitusvirheitä" %}
             <div class="alert alert-info mt-3" role="alert">
                 <br><br>
-                {% if suggestions == "Ei kirjoitusvirheitä" %}
                     Ei kirjoitusvirheitä!
-                {% elif suggestions == "Sanaa ei löytynyt sanastosta" %}
-                    Sanaa ei löytynyt sanastosta
-                {% else %}
-                    Tarkoititko:
-                    {% for suggestion in suggestions %}
-                        {% if loop.last %}
-                            <strong>{{ suggestion }}</strong>?
-                        {% else %}
-                            <strong>{{ suggestion }}</strong>,
-                        {% endif %}
-                    {% endfor %}
-                {% endif %}
             </div>
-        {% endif %}
-        
+               
+        {% endif %}       
     </body>
 </html>

@@ -1,0 +1,18 @@
+{% if suggestions == "Sanaa ei löytynyt sanastosta" %}
+    Sanaa ei löytynyt sanastosta
+{% else %}
+    Tarkoititko:
+    {% for suggestion in suggestions %}
+        {% if loop.last %}
+            <strong>{{ suggestion }}</strong>?
+        {% else %}
+            <strong>{{ suggestion }}</strong>,
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+<br><br>
+<p>Oliko syöttämäsi sana oikein?</p>
+<form action="/ {{ word }}/add" method="POST">
+    <input type="submit" class="button" value="Lisää sana sanastoon">
+</form>

@@ -27,8 +27,8 @@ def check_spelling():
     suggestions = spell_checker.suggest(word)
     if len(suggestions) == 0:
         suggestions = "Sanaa ei löytynyt sanastosta"
-        return render_template("index.html", suggestions=suggestions)
-    return render_template("index.html", suggestions=suggestions)
+        return render_template("suggest.html", word=word, suggestions=suggestions)
+    return render_template("suggest.html", word=word, suggestions=suggestions)
 
 @app.route("/fix_spelling", methods=["POST"])
 def fix_spelling():
@@ -44,3 +44,11 @@ def fix_spelling():
     if not able_to_correct:
         return render_template("result.html", fixed_text=fixed_text, message="Huom! Kaikkia sanoja ei voitu korjata.")
     return render_template("result.html", fixed_text=fixed_text)
+
+@app.route("/<word>/add", methods=["POST"])
+def add(word):
+    input = word
+    print(input)
+    if input and spell_checker.add_word(input):
+        return render_template("message.html", message="Sanan lisääminen onnistui")
+    return render_template("message.html", message="Sanan lisääminen ei onnistunut")
