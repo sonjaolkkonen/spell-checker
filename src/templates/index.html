@@ -29,6 +29,8 @@
                 <br><br>
                 {% if suggestions == "Ei kirjoitusvirheitä" %}
                     Ei kirjoitusvirheitä!
+                {% elif suggestions == "Sanaa ei löytynyt sanastosta" %}
+                    Sanaa ei löytynyt sanastosta
                 {% else %}
                     Tarkoititko:
                     {% for suggestion in suggestions %}

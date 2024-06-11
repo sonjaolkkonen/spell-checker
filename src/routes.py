@@ -25,6 +25,9 @@ def check_spelling():
         suggestions = "Ei kirjoitusvirheitä"
         return render_template("index.html", suggestions=suggestions)
     suggestions = spell_checker.suggest(word)
+    if len(suggestions) == 0:
+        suggestions = "Sanaa ei löytynyt sanastosta"
+        return render_template("index.html", suggestions=suggestions)
     return render_template("index.html", suggestions=suggestions)
 
 @app.route("/fix_spelling", methods=["POST"])
