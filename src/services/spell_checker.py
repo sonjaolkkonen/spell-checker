@@ -111,6 +111,14 @@ class SpellChecker():
         return " ".join(words)
     
     def add_word(self, word):
+        """Adds word to the vocabulary
+
+        Args:
+            word (str): word given by the user
+
+        Returns:
+            bool: True if the word was not in the vocabulary and added, otherwise False
+        """
         if not word:
             return False
         word_parsed = word.strip().lower()

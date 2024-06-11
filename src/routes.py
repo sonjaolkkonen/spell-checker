@@ -18,7 +18,7 @@ def check_spelling():
     """Checks the spelling of the given word
 
     Returns:
-        index.html page which shows suggestions for the given word
+        suggest.html page which shows suggestions for the given word
     """
     word = request.form.get("input_word")
     if spell_checker.find_word(word):
@@ -47,8 +47,15 @@ def fix_spelling():
 
 @app.route("/<word>/add", methods=["POST"])
 def add(word):
+    """Adds words given by the user to the vocabulary
+
+    Args:
+        word (str): word given by the user
+
+    Returns:
+        message.html page which includes info whether the adding was successful or not
+    """
     input = word
-    print(input)
     if input and spell_checker.add_word(input):
         return render_template("message.html", message="Sanan lisääminen onnistui")
     return render_template("message.html", message="Sanan lisääminen ei onnistunut")
