@@ -37,13 +37,13 @@ class TestSpellChecker(unittest.TestCase):
         self.assertFalse(self.spell_checker.find_word("123"))
 
     def test_fix_typos_no_typo(self):
-        self.assertEqual(self.spell_checker.fix_typos(["apple", "book", "bat"]), ["apple", "book", "bat"])
+        self.assertEqual(self.spell_checker.fix_typos(["apple", "book", "bat"])[0], ["apple", "book", "bat"])
 
     def test_fix_typos_with_typos(self):
-        self.assertEqual(self.spell_checker.fix_typos(["applle", "boot", "apreciate"]), ["apple", "book", "appreciate"])
+        self.assertEqual(self.spell_checker.fix_typos(["applle", "boot", "apreciate"])[0], ["apple", "book", "appreciate"])
 
     def test_fix_typos_with_empty_list(self):
-        self.assertEqual(self.spell_checker.fix_typos([]), [])
+        self.assertEqual(self.spell_checker.fix_typos([])[0], [])
     
     def test_parse_text(self):
         self.assertEqual(self.spell_checker.parse_text("apple book appreciate"), ["apple", "book", "appreciate"])
