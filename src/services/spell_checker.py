@@ -5,11 +5,15 @@ from services.damerau_levenshtein import DamerauLevenshtein
 dirname = os.path.dirname(__file__)
 
 class SpellChecker():
-    def __init__(self):
+    def __init__(self, trie = Trie(), damerau_levenshtein = DamerauLevenshtein()):
         """Class constructor which creates a new SpellChecker object
+
+        Args:
+            trie (Trie, optional): trie in which the words are saved
+            damerau_levenshtein (DamerauLevenshtein): class that counts teh distance between two words
         """
-        self.trie = Trie()
-        self.dl = DamerauLevenshtein()
+        self.trie = trie
+        self.dl = damerau_levenshtein
         self.create_vocabulary()
 
     def create_vocabulary(self):
