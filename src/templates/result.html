@@ -1,16 +1,23 @@
-<!doctype html>
-<html lang="fi">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Index</title>
-    </head>
-    <body>
-        <h1>Korjattu teksti:</h1>
-        {% if message %}
-        <p>{{ message }}</p>
-        {% endif %}
-        <textarea id="textbox" rows="15"> {{ fixed_text }}</textarea>
-
-    </body>
-</html>
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container" style="max-width: 1200px;">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card shadow-sm my-5">
+                    <div class="card-body">
+                        <h2 class="card-title">Korjattu teksti</h2>
+                        {% if message %}<p class="card-text">{{ message }}</p>{% endif %}
+                        <br>
+                        <form action="/">
+                            <div class="mb-3">
+                                <textarea class="form-control" name="input_text" id="text" rows="5" maxlength="100">{{ fixed_text }}</textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Takaisin etusivulle</button>
+                            <br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+{% endblock %}

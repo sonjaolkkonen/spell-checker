@@ -1,18 +1,37 @@
-{% if suggestions == "Sanaa ei löytynyt sanastosta" %}
-    Sanaa ei löytynyt sanastosta
-{% else %}
-    Tarkoititko:
-    {% for suggestion in suggestions %}
-        {% if loop.last %}
-            <strong>{{ suggestion }}</strong>?
-        {% else %}
-            <strong>{{ suggestion }}</strong>,
-        {% endif %}
-    {% endfor %}
-{% endif %}
-
-<br><br>
-<p>Oliko syöttämäsi sana oikein?</p>
-<form action="/ {{ word }}/add" method="POST">
-    <input type="submit" class="button" value="Lisää sana sanastoon">
-</form>
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container" style="max-width: 1200px;">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card shadow-sm my-5">
+                    <div class="card-body">
+                        <h2 class="card-title">Tarkoititko:</h2>
+                        <br>
+                        <form action="/{{ word }}/add" method="POST">
+                            <div class="mb-3">
+                                {% if suggestions == "Sanaa ei löytynyt sanastosta" %}
+                                    <p class="card-text">Sanaa ei löytynyt sanastosta</p>
+                                {% else %}
+                                    <p class="card-text">
+                                    {% for suggestion in suggestions %}
+                                        {% if loop.last %}
+                                            <strong>{{ suggestion }}</strong>
+                                        {% else %}
+                                            <strong>{{ suggestion }}</strong>,
+                                        {% endif %}
+                                    {% endfor %}
+                                    </p>
+                                {% endif %}
+                            </div>
+                            <br><br>
+                            Oliko syöttämäsi sana oikein?
+                            <br><br>
+                            <button type="submit" class="btn btn-primary">Lisää sana sanastoon</button>
+                            <br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+{% endblock %}

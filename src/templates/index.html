@@ -1,35 +1,44 @@
-<!doctype html>
-<html lang="fi">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Index</title>
-    </head>
-    <body>
-        <h1>Spell Checker - Kirjoitusvirheiden korjaaja</h1>
-        <p>Spell Checker tarkistaa syöttämäsi sanan tai tekstin oikeinkirjoituksen puolestasi.</p>
-        
-        <p>Syötä tarkistettava sana (enintään 20 merkkiä):</p>
-        <form action="/check_spelling" method="POST">
-            <textarea name="input_word" id="word" rows="1" maxlength="20"></textarea>
-            <br><br>
-            <input type="submit" class="button" value="Tarkista">
-        </form>
-        <br><br><br><br>    
-
-        <p>Syötä tarkistettava teksti (enintään 100 merkkiä):</p>
-        <form action="/fix_spelling" method="POST">
-            <textarea name="input_text" id="text" rows="10" maxlength="100"></textarea>
-            <br><br>
-            <input type="submit" class="button" value="Tarkista">
-        </form>
-
-        {% if suggestions == "Ei kirjoitusvirheitä" %}
-            <div class="alert alert-info mt-3" role="alert">
-                <br><br>
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container" style="max-width: 1200px;">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card shadow-sm my-5">
+                    <div class="card-body">
+                        <h2 class="card-title">Syötä tarkistettava sana</h2>
+                        <p class="card-text">Enintään 20 merkkiä</p>
+                        <br>
+                        <form action="/check_spelling" method="POST">
+                            <div class="mb-3">
+                                <textarea class="form-control" name="input_word" id="word" rows="1" maxlength="20" placeholder="Kirjoita sana..."></textarea>
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary">Tarkista</button>
+                        </form>
+                    </div>
+                </div>
+                {% if suggestions == "Ei kirjoitusvirheitä" %}
+                <div class="alert alert-success mt-5" role="alert">
                     Ei kirjoitusvirheitä!
+                </div>
+                {% endif %}
             </div>
-               
-        {% endif %}       
-    </body>
-</html>
+            <div class="col-md-6">
+                <div class="card shadow-sm my-5">
+                    <div class="card-body">
+                        <h2 class="card-title">Syötä tarkistettava teksti</h2>
+                        <p class="card-text">Enintään 100 merkkiä</p>
+                        <br>
+                        <form action="/fix_spelling" method="POST">
+                            <div class="mb-3">
+                                <textarea class="form-control" name="input_text" id="text" rows="5" maxlength="100" placeholder="Kirjoita teksti..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Tarkista</button>
+                            <br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
