@@ -6,12 +6,14 @@ from services.damerau_levenshtein import DamerauLevenshtein
 
 class TestSpellChecker(unittest.TestCase):
     def setUp(self):
+        self.create_test_file()
         self.trie_mock = Mock(wraps=Trie())
         self.dl_mock = Mock(wraps=DamerauLevenshtein())
-        self.spell_checker = SpellChecker(self.trie_mock, self.dl_mock)
-        words = ["aalto", "aaltoallas", "aamu", "ahven", "aikakone", "lihas", "lihota"]
-        for word in words:
-            self.trie_mock.insert(word)
+        self.spell_checker = SpellChecker("src/data/test_words.txt", self.trie_mock, self.dl_mock)
+
+    def create_test_file(self):
+        with open("src/data/test_words.txt", "w") as file:
+            file.write("aalto\naaltoallas\naamu\nahven\naikakone\nlihas\nlihota\n")
 
     def test_suggest_with_no_typo(self):
         suggestions = self.spell_checker.suggest("aamu")
@@ -59,5 +61,15 @@ class TestSpellChecker(unittest.TestCase):
 
     def test_return_into_text_empty_list(self):
         self.assertEqual(self.spell_checker.return_into_text([]), "")
+
+    def test_add_word_with_none(self):
+        self.assertFalse(self.spell_checker.add_word(None))
+
+    def test_add_word(self):
+        self.assertTrue(self.spell_checker.add_word("lahja"))
+        self.trie_mock.insert.assert_called_with("lahja")
+
+    def test_add_existing_word(self):
+        self.assertFalse(self.spell_checker.add_word("ahven"))
 
 

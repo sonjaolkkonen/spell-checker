@@ -104741,3 +104741,4 @@ zulu
 öykkäröidä
 öykkäröinti
 öylätti
+tetsi

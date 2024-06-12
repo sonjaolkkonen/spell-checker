@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from services.spell_checker import SpellChecker
 
 app = Flask(__name__)
-spell_checker = SpellChecker()
+spell_checker = SpellChecker("src/data/words.txt")
 
 @app.route("/")
 def index():

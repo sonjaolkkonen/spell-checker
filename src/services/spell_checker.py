@@ -2,24 +2,26 @@ import os
 from services.trie import Trie
 from services.damerau_levenshtein import DamerauLevenshtein
 
-dirname = os.path.dirname(__file__)
 
 class SpellChecker():
-    def __init__(self, trie = Trie(), damerau_levenshtein = DamerauLevenshtein()):
+    def __init__(self, file_path, trie = Trie(), damerau_levenshtein = DamerauLevenshtein()):
         """Class constructor which creates a new SpellChecker object
 
         Args:
+            path (str): path where the file exists
             trie (Trie, optional): trie in which the words are saved
             damerau_levenshtein (DamerauLevenshtein): class that counts teh distance between two words
         """
         self.trie = trie
         self.dl = damerau_levenshtein
+        self.file_path = file_path
         self.create_vocabulary()
+
 
     def create_vocabulary(self):
         """Saves words from the file into trie
         """
-        words = self.trie.load_words(os.path.join(dirname, "../", "data", "words.txt"))
+        words = self.trie.load_words(self.file_path)
         for word in words:
             self.trie.insert(word.lower())
 
@@ -128,7 +130,7 @@ class SpellChecker():
         word_parsed = word.strip().lower()
         if not self.find_word(word_parsed):
             self.trie.insert(word_parsed)
-            with open(os.path.join(dirname, "../", "data", "words.txt"), mode="a", encoding="UTF-8") as file:
+            with open(self.file_path, mode="a", encoding="UTF-8") as file:
                 file.write(word_parsed + "\n")
             return True
         return False
