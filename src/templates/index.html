@@ -10,7 +10,7 @@
                         <br>
                         <form action="/check_spelling" method="POST">
                             <div class="mb-3">
-                                <textarea class="form-control" name="input_word" id="word" rows="1" maxlength="20" placeholder="Kirjoita sana..."></textarea>
+                                <textarea class="form-control" name="input_word" id="word" rows="1" maxlength="20" placeholder="Kirjoita sana..." required></textarea>
                             </div>
                             <br>
                             <button type="submit" class="btn btn-primary">Tarkista</button>
@@ -31,7 +31,7 @@
                         <br>
                         <form action="/fix_spelling" method="POST">
                             <div class="mb-3">
-                                <textarea class="form-control" name="input_text" id="text" rows="5" maxlength="100" placeholder="Kirjoita teksti..."></textarea>
+                                <textarea class="form-control" name="input_text" id="text" rows="5" maxlength="100" placeholder="Kirjoita teksti..." required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Tarkista</button>
                             <br>
