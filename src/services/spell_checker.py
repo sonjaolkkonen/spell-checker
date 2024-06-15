@@ -62,7 +62,8 @@ class SpellChecker():
         for vocabulary_word in vocabulary:
             distance = self.dl.damerau_levenshtein_distance(word_lower, vocabulary_word)
             if distance <= 1:
-                suggestions.append(vocabulary_word)
+                if not vocabulary_word in suggestions:
+                    suggestions.append(vocabulary_word)
                 if one_word:
                     return suggestions
         return suggestions
