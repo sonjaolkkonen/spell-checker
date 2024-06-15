@@ -66,6 +66,7 @@ class Trie:
         Returns:
             list: content of the trie
         """
+        self.content = []
         self._dfs(self.root, "")
         return self.content
 
