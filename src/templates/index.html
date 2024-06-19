@@ -27,6 +27,11 @@
                     Et voi antaa numeroita, käytä pelkkiä kirjaimia!
                 </div>
                 {% endif %}
+                {% if suggestions == "Et voi antaa erikoismerkkejä" %}
+                <div class="alert alert-success mt-5" role="alert">
+                    Et voi antaa erikoismerkkejä, käytä pelkkiä kirjaimia!
+                </div>
+                {% endif %}
             </div>
             <div class="col-md-6">
                 <div class="card shadow-sm my-5">
@@ -46,6 +51,11 @@
                 {% if fixed_words == "Et voi antaa numeroita" %}
                 <div class="alert alert-success mt-5" role="alert">
                     Et voi antaa numeroita, käytä pelkkiä kirjaimia!
+                </div>
+                {% endif %}
+                {% if fixed_words == "Et voi antaa erikoismerkkejä" %}
+                <div class="alert alert-success mt-5" role="alert">
+                    Et voi antaa erikoismerkkejä, käytä pelkkiä kirjaimia!
                 </div>
                 {% endif %}
             </div>

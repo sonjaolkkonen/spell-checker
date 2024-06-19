@@ -60,6 +60,10 @@ class SpellChecker():
         for letter in word:
             if letter.isnumeric():
                 return "Et voi antaa numeroita"
+            
+        for letter in word:
+            if letter in string.punctuation:
+                return "Et voi antaa erikoismerkkejä"
 
         vocabulary = self.trie.get_trie_content()
         suggestions = []
@@ -89,6 +93,8 @@ class SpellChecker():
             for letter in word:
                 if letter.isnumeric():
                     return "Et voi antaa numeroita"
+                elif letter in string.punctuation:
+                    return "Et voi antaa erikoismerkkejä"
 
         for word in words:
 
