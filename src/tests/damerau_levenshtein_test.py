@@ -20,5 +20,5 @@ class TestDamerauLevenshtein(unittest.TestCase):
         self.assertEqual(distance, 5)
 
     def test_one_empty_string(self):
-        distance = self.dl.damerau_levenshtein_distance(self.word2, "")
-        self.assertEqual(distance, len(self.word2))
+        self.assertEqual(self.dl.damerau_levenshtein_distance(self.word2, ""), len(self.word2))
+        self.assertEqual(self.dl.damerau_levenshtein_distance("", self.word2), len(self.word2))
