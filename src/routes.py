@@ -28,6 +28,8 @@ def check_spelling():
     if len(suggestions) == 0:
         suggestions = "Sanaa ei löytynyt sanastosta"
         return render_template("suggest.html", word=word, suggestions=suggestions)
+    if suggestions == "Et voi antaa numeroita":
+        return render_template("index.html", suggestions=suggestions)
     return render_template("suggest.html", word=word, suggestions=suggestions)
 
 @app.route("/fix_spelling", methods=["POST"])
@@ -39,6 +41,8 @@ def fix_spelling():
     """
     text = spell_checker.parse_text(request.form.get("input_text"))
     fixed_words = spell_checker.fix_typos(text)
+    if fixed_words == "Et voi antaa numeroita":
+        return render_template("index.html", fixed_words=fixed_words)
     fixed_text = spell_checker.return_into_text(fixed_words[0])
     able_to_correct = fixed_words[1]
     if not able_to_correct:

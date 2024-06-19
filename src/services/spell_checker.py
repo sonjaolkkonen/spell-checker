@@ -56,6 +56,10 @@ class SpellChecker():
 
         if self.trie.search(word):
             return "Ei kirjoitusvirheitä"
+        
+        for letter in word:
+            if letter.isnumeric():
+                return "Et voi antaa numeroita"
 
         vocabulary = self.trie.get_trie_content()
         suggestions = []
@@ -80,6 +84,11 @@ class SpellChecker():
         """
         corrected_words = []
         able_to_correct = True
+
+        for word in words:
+            for letter in word:
+                if letter.isnumeric():
+                    return "Et voi antaa numeroita"
 
         for word in words:
 
