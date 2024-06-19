@@ -1,6 +1,7 @@
 import os
 from services.trie import Trie
 from services.damerau_levenshtein import DamerauLevenshtein
+import string
 
 
 class SpellChecker():
@@ -81,16 +82,22 @@ class SpellChecker():
         able_to_correct = True
 
         for word in words:
+
+            punctuation_mark = ""
+            if word[-1] in string.punctuation:
+                punctuation_mark = word[-1]
+                word = word[:-1]
+
             if len(word) > 1 and not self.find_word(word.lower()):
                 suggestions = self.suggest(word.lower(), True)
                 if len(suggestions) == 0:
-                    corrected_words.append(word)
+                    corrected_words.append(word + punctuation_mark)
                     able_to_correct = False                
                 else:
-                    corrected_words.append(suggestions[0])
+                    corrected_words.append(suggestions[0] + punctuation_mark)
 
             else:
-                corrected_words.append(word)
+                corrected_words.append(word + punctuation_mark)
 
         return [corrected_words, able_to_correct]
 
