@@ -21,6 +21,10 @@ class Trie:
         Args:
             word (str): the word to be inserted
         """
+
+        if not word:
+            return 
+        
         node = self.root
         for char in word:
             if char not in node.children:
