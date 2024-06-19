@@ -4,21 +4,29 @@ from services.trie import Trie
 class TestTrie(unittest.TestCase):
     def setUp(self):
         self.trie = Trie()
-        self.trie.insert("kissa")
-        self.trie.insert("koira")
-        self.trie.insert("lehmä")
-        self.trie.insert("apina")
-        self.trie.insert("hevonen")
-    
+        self.trie.insert("aalto")
+        self.trie.insert("aaltoallas")
+        self.trie.insert("aamu")
+        self.trie.insert("ahven")
+        self.trie.insert("aikakone")
+        self.trie.insert("lihas")
+        self.trie.insert("lihota")
+
     def test_insert(self):
-        self.assertTrue(self.trie.search("kissa"))
-        self.assertTrue(self.trie.search("koira"))
-        self.assertTrue(self.trie.search("lehmä"))
-        self.assertTrue(self.trie.search("apina"))
-        self.assertTrue(self.trie.search("hevonen"))
+        self.assertTrue(self.trie.search("aalto"))
+        self.assertTrue(self.trie.search("aaltoallas"))
+        self.assertTrue(self.trie.search("aamu"))
+        self.assertTrue(self.trie.search("ahven"))
+        self.assertTrue(self.trie.search("aikakone"))
+        self.assertTrue(self.trie.search("lihas"))
+        self.assertTrue(self.trie.search("lihota"))
+
+    def test_insert_with_none(self):
+        self.trie.insert(None)
+        self.assertFalse(self.trie.search(None))
     
     def test_search_with_word_in_trie(self):
-        self.assertTrue(self.trie.search("kissa"))
+        self.assertTrue(self.trie.search("aalto"))
 
     def test_search_with_word_not_in_trie(self):
         self.assertFalse(self.trie.search("maito"))
@@ -35,5 +43,11 @@ class TestTrie(unittest.TestCase):
         self.assertFalse(trie.search("banaani"))
         self.assertFalse(trie.search(""))
 
+    def test_get_trie_content(self):
+        content = self.trie.get_trie_content()
+        self.assertEqual(content, ["aalto", "aaltoallas", "aamu", "ahven", "aikakone", "lihas", "lihota"])
 
-        
+    def test_get_trie_content_with_empty_trie(self):
+        trie = Trie()
+        content = trie.get_trie_content()
+        self.assertEqual(content, [])
