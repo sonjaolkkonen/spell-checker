@@ -45,8 +45,6 @@ def fix_spelling():
     fixed_words = spell_checker.fix_typos(text)
     if fixed_words == "Et voi antaa numeroita":
         return render_template("index.html", fixed_words=fixed_words)
-    if fixed_words == "Et voi antaa erikoismerkkejä":
-        return render_template("index.html", fixed_words=fixed_words)
     fixed_text = spell_checker.return_into_text(fixed_words[0])
     able_to_correct = fixed_words[1]
     if not able_to_correct:

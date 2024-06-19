@@ -93,8 +93,6 @@ class SpellChecker():
             for letter in word:
                 if letter.isnumeric():
                     return "Et voi antaa numeroita"
-                elif letter in string.punctuation:
-                    return "Et voi antaa erikoismerkkejä"
 
         for word in words:
 
