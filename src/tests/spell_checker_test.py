@@ -25,9 +25,13 @@ class TestSpellChecker(unittest.TestCase):
         self.dl_mock.damerau_levenshtein_distance.assert_not_called()
         self.assertEqual(suggestions, "Anna sana")
     
-    # def test_suggest_with_numeric_input(self):
-    #     self.spell_checker.suggest("123")
-    #     self.dl_mock.damerau_levenshtein_distance.assert_not_called()
+    def test_suggest_with_numeric_input(self):
+        self.spell_checker.suggest("123")
+        self.dl_mock.damerau_levenshtein_distance.assert_not_called()
+
+    def test_suggest_with_punctuation_mark(self):
+        self.spell_checker.suggest("moi!")
+        self.dl_mock.damerau_levenshtein_distance.assert_not_called()
 
     def test_suggest(self):
         self.spell_checker.suggest("ajkakone")
@@ -45,10 +49,12 @@ class TestSpellChecker(unittest.TestCase):
         self.assertEqual(self.spell_checker.fix_typos(["amu", "lihass"])[0], ["aamu", "lihas"])
         self.assertEqual(self.spell_checker.fix_typos(["alto", "aaltoalkas", "lihoota"])[0], ["aalto", "aaltoallas", "lihota"])
         self.assertEqual(self.spell_checker.fix_typos(["ahven", "ja", "kuha"])[0], ["ahven", "ja", "kuha"])
+        self.assertEqual(self.spell_checker.fix_typos(["aamu", "123"]), "Et voi antaa numeroita")
+        self.assertEqual(self.spell_checker.fix_typos(["aaalto,", "altoallas!"])[0], ["aalto,", "aaltoallas!"])
 
     def test_fix_typos_with_empty_list(self):
         self.assertEqual(self.spell_checker.fix_typos([])[0], [])
-    
+
     def test_parse_text(self):
         self.assertEqual(self.spell_checker.parse_text("aalto meri"), ["aalto", "meri"])
         self.assertEqual(self.spell_checker.parse_text("aalto laiva meri"), ["aalto", "laiva", "meri"])
