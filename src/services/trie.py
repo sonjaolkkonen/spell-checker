@@ -23,8 +23,8 @@ class Trie:
         """
 
         if not word:
-            return 
-        
+            return
+
         node = self.root
         for char in word:
             if char not in node.children:

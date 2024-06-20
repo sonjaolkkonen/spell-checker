@@ -46,7 +46,8 @@ def fix_spelling():
     fixed_text = spell_checker.return_into_text(fixed_words[0])
     able_to_correct = fixed_words[1]
     if not able_to_correct:
-        return render_template("result.html", fixed_text=fixed_text, message="Huom! Kaikkia sanoja ei voitu korjata.")
+        return render_template("result.html", fixed_text=fixed_text,
+                               message="Huom! Kaikkia sanoja ei voitu korjata.")
     if fixed_words[0] != text and able_to_correct:
         print("korjaus")
         return render_template("result.html", fixed_text=fixed_text, message="Korjaus onnistui!")
@@ -63,7 +64,7 @@ def add(word):
     Returns:
         message.html page which includes info whether the adding was successful or not
     """
-    input = word
-    if input and spell_checker.add_word(input):
+    input_word = word
+    if input_word and spell_checker.add_word(input_word):
         return render_template("message.html", message="Sanan lisääminen onnistui")
     return render_template("message.html", message="Sanan lisääminen ei onnistunut")

@@ -1,8 +1,6 @@
-import os
+import string
 from services.trie import Trie
 from services.damerau_levenshtein import DamerauLevenshtein
-import string
-
 
 class SpellChecker():
     def __init__(self, file_path, trie = Trie(), damerau_levenshtein = DamerauLevenshtein()):
@@ -11,7 +9,8 @@ class SpellChecker():
         Args:
             path (str): path where the file exists
             trie (Trie, optional): trie in which the words are saved
-            damerau_levenshtein (DamerauLevenshtein): class that counts teh distance between two words
+            damerau_levenshtein (DamerauLevenshtein): class that counts the distance
+            between two words
         """
         self.trie = trie
         self.dl = damerau_levenshtein
@@ -56,7 +55,7 @@ class SpellChecker():
 
         if self.trie.search(word):
             return "Ei kirjoitusvirheitä"
-        
+
         for letter in word:
             if letter.isnumeric() or letter in string.punctuation:
                 return "Not valid"
@@ -101,7 +100,7 @@ class SpellChecker():
                 suggestions = self.suggest(word.lower(), True)
                 if len(suggestions) == 0:
                     corrected_words.append(word + punctuation_mark)
-                    able_to_correct = False                
+                    able_to_correct = False
                 else:
                     corrected_words.append(suggestions[0] + punctuation_mark)
 
@@ -131,7 +130,7 @@ class SpellChecker():
             str: combined text
         """
         return " ".join(words)
-    
+
     def add_word(self, word):
         """Adds word to the vocabulary
 
