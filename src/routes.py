@@ -28,9 +28,7 @@ def check_spelling():
     if len(suggestions) == 0:
         suggestions = "Sanaa ei löytynyt sanastosta"
         return render_template("suggest.html", word=word, suggestions=suggestions)
-    if suggestions == "Et voi antaa numeroita":
-        return render_template("index.html", suggestions=suggestions)
-    if suggestions == "Et voi antaa erikoismerkkejä":
+    if suggestions == "Not valid":
         return render_template("index.html", suggestions=suggestions)
     return render_template("suggest.html", word=word, suggestions=suggestions)
 
@@ -49,7 +47,7 @@ def fix_spelling():
     able_to_correct = fixed_words[1]
     if not able_to_correct:
         return render_template("result.html", fixed_text=fixed_text, message="Huom! Kaikkia sanoja ei voitu korjata.")
-    return render_template("result.html", fixed_text=fixed_text)
+    return render_template("result.html", fixed_text=fixed_text, message="Korjaus onnistui!")
 
 @app.route("/<word>/add", methods=["POST"])
 def add(word):

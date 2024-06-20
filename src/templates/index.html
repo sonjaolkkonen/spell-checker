@@ -22,14 +22,9 @@
                     Ei kirjoitusvirheitä!
                 </div>
                 {% endif %}
-                {% if suggestions == "Et voi antaa numeroita" %}
+                {% if suggestions == "Not valid" %}
                 <div class="alert alert-success mt-5" role="alert">
-                    Et voi antaa numeroita, käytä pelkkiä kirjaimia!
-                </div>
-                {% endif %}
-                {% if suggestions == "Et voi antaa erikoismerkkejä" %}
-                <div class="alert alert-success mt-5" role="alert">
-                    Et voi antaa erikoismerkkejä, käytä pelkkiä kirjaimia!
+                    Et voi antaa numeroita tai erikoismerkkejä, käytä pelkkiä kirjaimia!
                 </div>
                 {% endif %}
             </div>

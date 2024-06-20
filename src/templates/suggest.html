@@ -13,9 +13,9 @@
                                     <p class="card-text">Sanaa ei löytynyt sanastosta</p>
                                 {% else %}
                                     <p class="card-text">
-                                    {% for suggestion in suggestions %}
-                                        <strong>Tarkoititko:</strong> 
-                                        <br>
+                                    <strong>Tarkoititko:</strong>
+                                    <br><br>
+                                    {% for suggestion in suggestions %} 
                                         {% if loop.last %}
                                             {{ suggestion }}
                                         {% else %}
