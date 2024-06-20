@@ -47,7 +47,11 @@ def fix_spelling():
     able_to_correct = fixed_words[1]
     if not able_to_correct:
         return render_template("result.html", fixed_text=fixed_text, message="Huom! Kaikkia sanoja ei voitu korjata.")
-    return render_template("result.html", fixed_text=fixed_text, message="Korjaus onnistui!")
+    if fixed_words[0] != text and able_to_correct:
+        print("korjaus")
+        return render_template("result.html", fixed_text=fixed_text, message="Korjaus onnistui!")
+    print("ei korjattavaa")
+    return render_template("result.html", fixed_text=fixed_text, message="Ei kirjoitusvirheitä!")
 
 @app.route("/<word>/add", methods=["POST"])
 def add(word):
