@@ -41,7 +41,7 @@ Sovellusta on testattu manuaalisesti antamalla käyttöliittymälle erilaisia te
 
 **Oikein kirjoitettu teksti**
 - Syötetään sovellukselle teksti, jossa ei ole kirjoitusvirheitä, esim. "kissa ja koira!". Sanat tulee kirjoittaa perusmuodossa, sillä sovelluksen sanasto ei sisällä sanojen kaikkia taivutusmuotoja.
-- Sovelluksen pitäisi palauttaa teksti samassa muodossa kuin se kirjoitettiin
+- Sovelluksen pitäisi palauttaa teksti samassa muodossa kuin se kirjoitettiin sekä ilmoitus "Ei kirjoitusvirheitä!"
 
 **Teksti, joka sisältää kirjoitusvirheitä**
 - Syötetään sovellukselle teksti, joka sisältää pieniä kirjoitusvirheitä, esim. "koida ja kissa!"
