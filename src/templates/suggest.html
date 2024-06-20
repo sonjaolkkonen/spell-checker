@@ -5,7 +5,7 @@
             <div class="col-md-6">
                 <div class="card shadow-sm my-5">
                     <div class="card-body">
-                        <h2 class="card-title">Tarkoititko:</h2>
+                        <h2 class="card-title">Antamasi sana: {{ word }}</h2>
                         <br>
                         <form action="/{{ word }}/add" method="POST">
                             <div class="mb-3">
@@ -14,20 +14,25 @@
                                 {% else %}
                                     <p class="card-text">
                                     {% for suggestion in suggestions %}
+                                        <strong>Tarkoititko:</strong> 
+                                        <br>
                                         {% if loop.last %}
-                                            <strong>{{ suggestion }}</strong>
+                                            {{ suggestion }}
                                         {% else %}
-                                            <strong>{{ suggestion }}</strong>,
+                                            {{ suggestion }},
                                         {% endif %}
                                     {% endfor %}
+                                    ?
                                     </p>
                                 {% endif %}
                             </div>
                             <br><br>
-                            Oliko syöttämäsi sana oikein?
-                            <br><br>
+                            <p class="card-text">
+                                <strong>Oliko syöttämäsi sana oikein? </strong>
+                            </p>
                             <button type="submit" class="btn btn-primary">Lisää sana sanastoon</button>
-                            <br>
+                            <br><br>
+                            <a href="/">Palaa takaisin etusivulle</a>
                         </form>
                     </div>
                 </div>
