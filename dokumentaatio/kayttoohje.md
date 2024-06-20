@@ -79,6 +79,11 @@ Mikäli kaikkia sanoja ei voitu korjata, ilmoittaa sovellus tästä:
 
 ![image](https://github.com/sonjaolkkonen/spell-checker/assets/117500758/e9ae5186-f8b3-43b9-b349-3949b96bf50d)
 
+Mikäli syötetyssä tekstissä ei ollut kirjoitusvirheitä, palauttaa sovellus annetun tekstin sellaisenaan sekä ilmoituksen ettei tekstistä löytynyt kirjoitusvirheitä:
+
+![image](https://github.com/sonjaolkkonen/spell-checker/assets/117500758/f37147c9-cb69-4830-8780-ad77aafb79d5)
+
+
 ### Sanan lisääminen sanastoon
 
 Mikäli sanaa ei löydy trie-rakenteesta, mutta se on oikeinkirjoitettu, voi käyttäjä lisätä sanan sanastoon: 
