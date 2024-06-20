@@ -67,7 +67,7 @@ Mikäli sanaa ei löydy sellaisenaan trie-rakenteesta, mutta sanalle ei myöskä
 
 ### Pitemmän tekstin korjaaminen
 
-Pitemmän tekstin kenttään voi syöttää enintään 2oo merkkiä pitkän tekstin. Teksti voi sisältää erikoismerkkejä, mutta se ei voi sisältää numeroita. Tekstin oikeinkirjoituksen tarkastaminen tapahtuu painamalla tarkista-nappia.
+Pitemmän tekstin kenttään voi syöttää enintään 200 merkkiä pitkän tekstin. Teksti voi sisältää erikoismerkkejä, mutta se ei voi sisältää numeroita. Tekstin oikeinkirjoituksen tarkastaminen tapahtuu painamalla tarkista-nappia.
 
 ![image](https://github.com/sonjaolkkonen/spell-checker/assets/117500758/ceb68d6f-006c-4fa6-8c66-3a931f915d37)
 
