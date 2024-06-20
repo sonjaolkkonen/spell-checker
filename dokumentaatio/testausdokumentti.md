@@ -5,7 +5,9 @@
 Yksikkötesteissä on hyödynnetty unittest-kirjastoa ja ne kattavat src/services -hakemiston tiedostot. Testattavat luokat ovat siis DamerauLevenshtein, SpellChecker ja Trie. Juuri nämä luokat on päätetty sisällyttää testeihin, sillä ne sisältävät varsinaisen ohjelmalogiikan. Näin ollen ohjelman käyttöliittymä on päätetty jättää yksikkötestien ulkopuolelle.
 
 ### Testikattavuusraportti
-![image](https://github.com/sonjaolkkonen/spell-checker/assets/117500758/e450a402-6b3d-44ea-bb08-07f54bf4a01a)
+
+![image](https://github.com/sonjaolkkonen/spell-checker/assets/117500758/b142f086-95fd-4a7d-acbd-a978a24d6660)
+
 
 ## Manuaalinen testaus
 Sovellusta on testattu manuaalisesti antamalla käyttöliittymälle erilaisia testisyötteitä, jolloin on varmistettu, että sana joko tunnistetaan tai sille annetaan korjausehdotus. Tämän lisäksi on myös testattu sanan lisäämistä sanastoon.
