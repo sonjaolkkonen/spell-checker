@@ -8,7 +8,59 @@ Yksikkötesteissä on hyödynnetty unittest-kirjastoa ja ne kattavat src/service
 ![image](https://github.com/sonjaolkkonen/spell-checker/assets/117500758/e450a402-6b3d-44ea-bb08-07f54bf4a01a)
 
 ## Manuaalinen testaus
-Sovellusta testataan manuaalisesti antamalla käyttöliittymälle erilaisia testisyötteitä. 
+Sovellusta on testattu manuaalisesti antamalla käyttöliittymälle erilaisia testisyötteitä, jolloin on varmistettu, että sana joko tunnistetaan tai sille annetaan korjausehdotus. Tämän lisäksi on myös testattu sanan lisäämistä sanastoon.
+
+## Testitapaukset
+
+### Yhden sanan korjaaminen
+
+**Oikein kirjoitettu sana**
+- Syötetään sovellukselle sanastossa oleva sana, esim. "kissa"
+- Sovelluksen pitäisi antaa ilmoitus "Ei kirjoitusvirheitä!"
+
+**Sana, jossa on kirjoitusvirhe**
+- Syötetään sovellukselle sana, jossa on pieni kirjoitusvirhe, esim. "kisda"
+- Sovelluksen pitäisi tulostaa: "Antamasi sana: kisda, Tarkoititko: [lista ehdotuksista]
+- Ehdotuksissa pitäisi olla ainakin kissa, sekä mahdollisesti muitakin sanoja, joiden etäisyys sanasta "kissa" on 1
+
+**Sana, joka sisältää erikoismerkkejä tai numeroita**
+- Syötetään sovellukselle sana, joka sisältää numeroita, esim. "kissa1"
+- Sovelluksen pitäisi antaa ilmoitus "Et voi antaa numeroita tai erikoismerkkejä, käytä pelkkiä kirjaimia!"
+- Syötetään sovellukselle sana, joka sisältää erikoismerkkejä, esim. "kissa!"
+- Sovelluksen pitäisi antaa ilmoitus "Et voi antaa numeroita tai erikoismerkkejä, käytä pelkkiä kirjaimia!"
+
+**Sana, jolle ei löydy korjausehdotuksia**
+- Syötetään sovellukselle sana, joka ei muistuta mitään sanaa, esim. "abcdefgh"
+- Sovelluksen pitäisi tulostaa: "Antamasi sana: abcdefgh, Sanaa ei löytynyt sanastosta". 
+
+**Tyhjä tekstikenttä**
+- Jätetään tekstikenttä tyhjäksi ja painetaan tarkista-nappia
+- Sovelluksen pitäisi antaa herja "Please fill in this field."
+
+### Pidemmän tekstin korjaaminen
+
+**Oikein kirjoitettu teksti**
+- Syötetään sovellukselle teksti, jossa ei ole kirjoitusvirheitä, esim. "kissa ja koira!". Sanat tulee kirjoittaa perusmuodossa, sillä sovelluksen sanasto ei sisällä sanojen kaikkia taivutusmuotoja.
+- Sovelluksen pitäisi palauttaa teksti samassa muodossa kuin se kirjoitettiin
+
+**Teksti, joka sisältää kirjoitusvirheitä**
+- Syötetään sovellukselle teksti, joka sisältää pieniä kirjoitusvirheitä, esim. "koida ja kissa!"
+- Sovelluksen pitäisi palauttaa korjattu teksti "koira ja kissa" sekä ilmoitus "Korjaus onnistui!"
+
+**Teksti, joka sisältää sanoja, joille ei löydy korjausehdotusta**
+- Syötetään sovellukselle teksti, joka sisältää sanoja, jotka eivät muistuta mitään oikeita sanoja, esim. "abcdefgh"
+- Sovelluksen pitäisi palauttaa muokkaamaton teksti sekä ilmoitus "Huom! Kaikkia sanoja ei voitu korjata."
+
+**Tyhjä tekstikenttä**
+- Jätetään tekstikenttä tyhjäksi ja painetaan tarkista-nappia
+- Sovelluksen pitäisi antaa herja "Please fill in this field."
+
+### Sanan lisääminen
+Sanan voi lisätä sanastoon sen jälkeen, kun sanan korjausta on pyydetty ja sanaa ei löytynyt sanastosta.
+
+**Sana, jota ei löytynyt sanastosta**
+- Lisätään sana, jota ei löytynyt sanastosta
+- Sovelluksen pitäisi tulostaa "Sanan lisääminen onnistui"
 
 ## Suorituskykytestaus
 
@@ -16,7 +68,7 @@ Algoritmia ja tietorakennetta on testattu ajamalla manuaalisesti testejä, joiss
 
 ### Damerau-Levenshtein
 
-Etäisyyden laskentaa suorittavaa Dameray-Levenshtein -algoritmia on testattu antamalla sille eri pituisia ja erilaisia syötteitä kerran tai useamman kerran peräkkäin. Näin varmistetaan, että algoritmi laskee etäisyyden oikein pitkillä syötteillä sekä useasti kutsuttuna
+Etäisyyden laskentaa suorittavaa Dameray-Levenshtein -algoritmia on testattu antamalla sille eri pituisia ja erilaisia syötteitä kerran tai useamman kerran peräkkäin. Näin varmistetaan, että algoritmi laskee etäisyyden oikein pitkillä syötteillä sekä useasti kutsuttuna.
 
 **1. Pienet syötteet ("kissa" vs "koira")**
    - Aika pienillä syötteillä: 2.6464462280273438e-05 sekuntia
