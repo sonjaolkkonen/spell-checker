@@ -18,11 +18,15 @@ Lähteiden mukaan trie-tietorakenteen hakuoperaatiot voivat enimmillään viedä
 
 ## Puutteet ja parannusehdotukset
 
-Tulossa..
+Ohjelma toimii tällä hetkellä verrattain hitaasti, sillä läpikäytävä sanalista on suuri, yli 104 000 sanaa. Sovelluksen sanastona on nyt käytetty Kotimaisten kielten keskuksen Nykysuomen sanalistaa, joka perustuu Kielitoimiston sanakirjan hakusanoihin. Sovelluksessa voisi kuitenkin hyödyntää näin ison sanalistan sijaan lyhyempää sanastoa, joka sisältäisi suomen kielen yleisimpiä sanoja. Näin sovelluksen toiminta nopeutuisi ja ehdotuksetkin olisivat osuvampia. 
+
+Sovellus ei tällä hetkellä ota huomioon myöskään sanojen taivutusmuotoja, eli se ei tunnista taivutettuja sanoja vaan ainoastaan sanojen perusmuodot. Erityisesti suomen kielessä tämä on iso haaste, sillä oikeastaan kaikki sanat ovat taivutettuja. Sanalistaassa voisi olla esimerkiksi sanan perässä ilmoitettuna sanan sanaluokka sekä taivutustiedot, joita ohjelma hyödyntäisi sanan etsimisessä. 
+
+Pidemmän tekstin korjaamisessa sovellus antaa korjausehdotukseksi nyt ensimmäisen löytyneen ehdotuksen. Tämä ei tietenkään aina ole juuri se sana, jota käyttäjä oli kirjoittamassa. Ensimmäisen ehdotuksen sijaan, sovellus voisi antaa listana kaikki ehdotukset kullekin väärin kirjoitetulle sanalle, joista käyttäjä voisi sitten valita oikean vaihtoehdon.
 
 ## Laajojen kielimallien käyttö
 
-Tulossa..
+Laajoja kielimalleja ei ole käytetty tässä projektissa.
 
 ## Viitteet
 - [Damerau–Levenshtein distance (Wikipedia)](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance)
