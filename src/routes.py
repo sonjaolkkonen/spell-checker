@@ -51,7 +51,6 @@ def fix_spelling():
     if fixed_words[0] != text and able_to_correct:
         print("korjaus")
         return render_template("result.html", fixed_text=fixed_text, message="Korjaus onnistui!")
-    print("ei korjattavaa")
     return render_template("result.html", fixed_text=fixed_text, message="Ei kirjoitusvirheitä!")
 
 @app.route("/<word>/add", methods=["POST"])
