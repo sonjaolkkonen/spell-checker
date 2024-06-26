@@ -57,7 +57,7 @@ class SpellChecker():
             return "Ei kirjoitusvirheitä"
 
         for letter in word:
-            if letter.isnumeric() or letter in string.punctuation:
+            if letter.isnumeric() or letter in [".", ",", "!", "?"]:
                 return "Not valid"
 
         vocabulary = self.trie.get_trie_content()
