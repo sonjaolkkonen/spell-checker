@@ -6,7 +6,8 @@ Yksikkötesteissä on hyödynnetty unittest-kirjastoa ja ne kattavat src/service
 
 ### Testikattavuusraportti
 
-![image](https://github.com/sonjaolkkonen/spell-checker/assets/117500758/b142f086-95fd-4a7d-acbd-a978a24d6660)
+
+![image](https://github.com/sonjaolkkonen/spell-checker/assets/117500758/b036ef9a-ed8e-411c-a8bf-88b4ac8f7529)
 
 
 ## Manuaalinen testaus
