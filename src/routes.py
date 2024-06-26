@@ -6,7 +6,7 @@ spell_checker = SpellChecker("src/data/words.txt")
 
 @app.route("/")
 def index():
-    """Handles the index page and processes the form submission.
+    """Returns index.html page
 
     Returns:
         index.html page

@@ -7,10 +7,10 @@ class SpellChecker():
         """Class constructor which creates a new SpellChecker object
 
         Args:
-            path (str): path where the file exists
             trie (Trie, optional): trie in which the words are saved
             damerau_levenshtein (DamerauLevenshtein): class that counts the distance
             between two words
+            path (str): path where the file exists
         """
         self.trie = trie
         self.dl = damerau_levenshtein
