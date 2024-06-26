@@ -55,6 +55,14 @@ class TestSpellChecker(unittest.TestCase):
     def test_fix_typos_with_empty_list(self):
         self.assertEqual(self.spell_checker.fix_typos([])[0], [])
 
+    def test_fix_typos_with_words_can_be_correct_returns_able_to_correct(self):
+        self.assertTrue(self.spell_checker.fix_typos(["aamu", "alto", "liihota"])[1])
+        self.assertTrue(self.spell_checker.fix_typos(["aaltoalllas", "aikokone"])[1])
+
+    def test_fix_typos_with_words_cannot_be_correct_does_not_return_able_to_correct(self):
+        self.assertFalse(self.spell_checker.fix_typos(["abcdefgh"])[1])
+        self.assertFalse(self.spell_checker.fix_typos(["ahven", "kuha"])[1])
+
     def test_parse_text(self):
         self.assertEqual(self.spell_checker.parse_text("aalto meri"), ["aalto", "meri"])
         self.assertEqual(self.spell_checker.parse_text("aalto laiva meri"), ["aalto", "laiva", "meri"])
